@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap");
+/* start global rules */
+:root {
+  --main-color: #008fcf;
+  --nav-height: 70px;
+  --main-transition: 0.3s;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Cairo", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* start global rules */
+/* start nav bar */
+nav {
+  box-shadow: 0px 0px 9px 0px #eee;
+}
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: var(--nav-height);
+  position: relative;
+}
+nav .logo a {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--main-color);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  nav .logo {
+    width: 100%;
+  }
+  nav .container .logo a {
+    height: calc(var(--nav-height) / 2);
+    justify-content: center;
+  }
+}
+nav .container > ul {
+  display: flex;
+}
+nav .container > ul > li > a {
+  color: #000;
+  font-size: 14px;
+  padding: 0 20px;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: var(--main-transition);
+}
+@media (max-width: 767px) {
+  nav .container > ul {
+    margin: auto;
+  }
+  nav .container > ul > li > a {
+    height: calc(var(--nav-height) / 2);
+    padding: 0 10px;
+  }
+}
+nav .container > ul > li a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--main-color);
+  top: 0;
+  left: -100%;
+  transition: var(--main-transition);
+}
+nav .container > ul > li a:hover,
+nav .container > ul > li a.active {
+  background-color: #fcfcfc;
+  color: var(--main-color);
+}
+nav .container > ul > li a:hover::after,
+nav .container > ul > li a.active::after {
+  left: 0;
+}
+/* nav .container > ul > li:last-child a:hover + .mega-menu {
+  z-index: 1;
+  top: calc(var(--nav-height) + 2px);
+} */
+/* start mega menu */
+nav .mega-menu {
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: calc(var(--nav-height) + 20px);
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  border-bottom: 2px solid var(--main-color);
+  z-index: -1;
+  transition: var(--main-transition);
+}
+nav .mega-menu.show {
+  z-index: 1;
+  top: calc(var(--nav-height) + 2px);
+}
+nav .mega-menu .image {
+  flex: 1;
+}
+@media (max-width: 767px) {
+  nav .mega-menu .image {
+    display: none;
+  }
+}
+nav .mega-menu .image img {
+  width: 300px;
+  max-width: 100%;
+}
+nav .mega-menu ul {
+  flex: 1;
+}
+nav .mega-menu ul li a {
+  display: block;
+  color: #333;
+  padding: 15px 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #f3f3f3;
+}
+nav .mega-menu ul li a i {
+  padding-right: 10px;
+}
+/* end mega menu */
+/* end nav bar */
+/* start landing */
+.landing {
+  position: relative;
+  overflow: hidden;
+}
+.landing::after {
+  content: "";
+  position: absolute;
+  top: -70px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+  z-index: -1;
+  transform: skewY(-6deg);
+}
+.landing .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: calc(100vh - var(--nav-height));
+}
+@media (max-width: 991px) {
+  .landing .container {
+    justify-content: center;
+    text-align: center;
+  }
+}
+.landing .text p {
+  line-height: 1.7;
+  letter-spacing: 1px;
+  color: #555;
+  max-width: 600px;
+}
+.landing .image img {
+  position: relative;
+  max-width: 300px;
+  height: auto;
+  animation: up-down-img 3s linear infinite;
+}
+.landing .arrow {
+  font-size: 25px;
+  color: var(--main-color);
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: up-down-arrow 2s linear infinite;
+}
+/* end landing */
+/* start animation */
+@keyframes up-down-img {
+  0%,
+  100% {
+    top: 0;
+  }
+  50% {
+    top: -30px;
+  }
+}
+@keyframes up-down-arrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+/* end animation */
