@@ -47,9 +47,11 @@ a {
 .main-heading {
   margin: 0 auto 30px;
   padding: 10px 30px;
-  border: 1px solid #000;
+  border: 2px solid #000;
   width: fit-content;
   position: relative;
+  z-index: 1;
+  transition: var(--main-transition);
 }
 .main-heading::after,
 .main-heading::before {
@@ -62,12 +64,29 @@ a {
   top: 50%;
   transform: translateY(-50%);
   transition: var(--main-transition);
+  z-index: -1;
 }
 .main-heading::after {
   left: -30px;
 }
 .main-heading::before {
   right: -30px;
+}
+.main-heading:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.main-heading:hover::before,
+.main-heading:hover::after {
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+}
+.main-heading:hover::after {
+  left: 0;
+}
+.main-heading:hover::before {
+  right: 0;
 }
 /* start global rules */
 /* start nav bar */
