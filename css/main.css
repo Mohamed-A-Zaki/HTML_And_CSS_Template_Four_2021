@@ -89,6 +89,24 @@ a {
   right: 0;
 }
 /* start global rules */
+/* strat scroll to top */
+.scroll-to-top {
+  position: fixed;
+  background-color: var(--main-color);
+  padding: 15px;
+  color: #fff;
+  font-size: 20px;
+  bottom: 20px;
+  right: -50px;
+  z-index: 100;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.scroll-to-top.show {
+  right: 20px;
+}
+/* end scroll to top */
 /* start nav bar */
 nav {
   box-shadow: 0px 0px 9px 0px #eee;
@@ -806,6 +824,7 @@ nav .mega-menu ul li a i {
   position: absolute;
   height: 100%;
   background-color: var(--main-color);
+  transition: var(--main-transition);
 }
 /* end our skills */
 /* start works */
@@ -853,7 +872,7 @@ nav .mega-menu ul li a i {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgb(0 0 0 / 20%);
+  background-color: rgb(0 0 0 / 10%);
   width: 0;
   height: 0;
   transition: var(--main-transition);
@@ -1128,9 +1147,11 @@ nav .mega-menu ul li a i {
 .videos .container .menu ul li {
   padding: 20px;
   border-top: 1px solid #f4f4f4;
+  transition: var(--main-transition);
 }
 .videos .container .menu ul li:hover {
   color: var(--main-color);
+  background-color: #fafafa;
 }
 .videos .container .menu ul li span {
   display: block;
@@ -1211,7 +1232,7 @@ nav .mega-menu ul li a i {
   height: 100%;
 }
 .stat .box i {
-  font-size: 25px;
+  font-size: 35px;
 }
 .stat .box .num {
   font-size: 30px;
