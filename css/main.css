@@ -107,6 +107,22 @@ a {
   right: 20px;
 }
 /* end scroll to top */
+
+/* start scroll indicator */
+.progress-container {
+  position: fixed;
+  height: 7px;
+  background-color: #ddd;
+  width: 100%;
+  z-index: 10;
+}
+.progress-container .progress-bar {
+  width: 0;
+  height: 100%;
+  background-color: indianred;
+}
+/* end scroll indicator */
+
 /* start nav bar */
 nav {
   box-shadow: 0px 0px 9px 0px #eee;
@@ -823,6 +839,7 @@ nav .mega-menu ul li a i {
 .our-skills .content .skill .progress span {
   position: absolute;
   height: 100%;
+  width: 0;
   background-color: var(--main-color);
   transition: var(--main-transition);
 }
